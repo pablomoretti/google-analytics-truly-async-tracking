@@ -22,15 +22,25 @@
 			    (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0; position: absolute";
 			    iframe.src = "javascript:false";
 			    iframe.id = "GoogleAnalyticsFrienlyIframe";
+			    iframe.title = ""; iframe.role="presentation";
 			    var where = document.getElementsByTagName('script')[0];
 			    where.parentNode.insertBefore(iframe, where);
-			    var doc = iframe.contentWindow.document;
-			    doc.open().write('<body onload="' +
-			        'var js = document.createElement(\'script\');' +
-			        'js.src = \'' + url + '\';' +
-			        'document.body.appendChild(js);">');
-			    doc.close();
-
+			    var doc, dom;
+			    try {
+    				doc = iframe.contentWindow.document;
+  			    } catch(e) {
+				    dom = document.domain;
+    				iframe.src="javascript:var d=document.open();d.domain='"+dom+"';void(0);";
+    				doc = iframe.contentWindow.document;
+  			    }
+     			doc.open()._l = function() {
+    			    var js = this.createElement("script");
+			        if(dom) this.domain = dom;
+			        js.src = url;
+			        this.body.appendChild(js);
+			    };
+  			    doc.write('<body onload="document._l();">');
+  			    doc.close();
 			})(window, document, 'ga', '/analytics-js.php');
 
 			ga('create', 'UA-42736011-1', 'herokuapp.com');
