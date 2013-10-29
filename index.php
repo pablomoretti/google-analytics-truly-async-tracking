@@ -17,6 +17,7 @@
 
 			    i[r].l = 1 * new Date();
 
+			    //Thanks Stoyan Stefanov http://www.phpied.com/non-onload-blocking-async-js/
 			    var iframe = document.createElement('iframe');
 			    (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0; position: absolute";
 			    iframe.src = "javascript:false";
