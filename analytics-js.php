@@ -1,5 +1,8 @@
+<?php
 header('Content-type: text/javascript');
 header('Cache-Control: maxage=43200');
+?>
+
 (function(window,document) {
 
 <?php

@@ -36,12 +36,12 @@
 
 			ga('send', 'pageview',{
   				'hitCallback': function(){
-  					document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + 'Track page: ' + Date.now()-timerStart + 'ms <br>';
+  					document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + 'Track page: ' + (Date.now()-timerStart) + 'ms <br>';
 				}
   			});
 
   			window.onload = function(){
-  				document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + 'Load page: ' + Date.now()-timerStart + 'ms <br>';
+  				document.getElementById('output').innerHTML = document.getElementById('output').innerHTML + 'Load page: ' + (Date.now()-timerStart) + 'ms <br>';
   			}
 
 		</script>
