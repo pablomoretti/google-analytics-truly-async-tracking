@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Google Analytics Truly Asynchronous Tracking</title>
-
+		<script type="text/javascript">
+            var timerStart = Date.now();
+        </script>
 		<script type="text/javascript">
 
 			(function (i, s, r, url) {
@@ -32,12 +34,21 @@
 
 			ga('create', 'UA-42736011-1', 'herokuapp.com');
 
-			ga('send', 'pageview');
+			ga('send', 'pageview',{
+  				'hitCallback': function(){
+  					document.getElementeById('output').innerHTML = document.getElementeById('output').innerHTML + 'Track page: ' + Date.now()-timerStart + 'ms <br>';
+				}
+  			});
+
+  			window.onload = function(){
+  				document.getElementeById('output').innerHTML = document.getElementeById('output').innerHTML + 'Load page: ' + Date.now()-timerStart + 'ms <br>';
+  			}
 
 		</script>
 	</head>
 	<body>
 		<h1> Google Analytics Truly Asynchronous Tracking </h1>
+		<div id="output" > </div>
 	</body>
 </html>
 
