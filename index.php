@@ -21,7 +21,7 @@
 			    var iframe = document.createElement('iframe');
 			    (iframe.frameElement || iframe).style.cssText = "width: 0; height: 0; border: 0; position: absolute";
 			    iframe.src = "javascript:false";
-			    iframe.id = "GoogleAnalyticsFrienlyIframe";
+			    iframe.id = "GoogleAnalyticsFriendlyIframe";
 			    var where = document.getElementsByTagName('script')[0];
 			    where.parentNode.insertBefore(iframe, where);
 			    var doc = iframe.contentWindow.document;
