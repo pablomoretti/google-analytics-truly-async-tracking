@@ -1,5 +1,5 @@
 <?php
-header('Content-type: text/javascript');
+header('Content-type: application/javascript');
 header('Cache-Control: public, max-age=43200');
 ?>
 
